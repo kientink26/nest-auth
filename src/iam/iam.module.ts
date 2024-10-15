@@ -23,11 +23,12 @@ import { ApiKeyGuard } from './authentication/guards/api-key.guard';
     ConfigModule.forFeature(jwtConfig),
   ],
   providers: [
+    AuthenticationService,
+    ApiKeysService,
     {
       provide: HashingService,
       useClass: BrcyptService,
     },
-    AuthenticationService,
     {
       provide: APP_GUARD,
       useClass: AuthenticationGuard,
@@ -38,7 +39,6 @@ import { ApiKeyGuard } from './authentication/guards/api-key.guard';
     },
     AccessTokenGuard,
     ApiKeyGuard,
-    ApiKeysService,
   ],
   controllers: [AuthenticationController],
 })

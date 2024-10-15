@@ -59,13 +59,13 @@ export class AuthenticationService {
         sub: user.id,
         email: user.email,
         role: user.role,
-      } as ActiveUserData,
+      } satisfies ActiveUserData,
       {
         secret: this.jwtConfigs.secret,
         issuer: this.jwtConfigs.issuer,
         audience: this.jwtConfigs.audience,
         expiresIn: this.jwtConfigs.accessTokenTtl,
-      } as JwtSignOptions,
+      } satisfies JwtSignOptions,
     );
     return { accessToken };
   }

@@ -38,7 +38,7 @@ export class ApiKeyGuard implements CanActivate {
         sub: apiKeyEntity.user.id,
         email: apiKeyEntity.user.email,
         role: apiKeyEntity.user.role,
-      } as ActiveUserData;
+      } satisfies ActiveUserData;
     } catch {
       throw new UnauthorizedException();
     }
